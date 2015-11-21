@@ -6,7 +6,7 @@ import (
 
 	// Third party packages
 	"github.com/julienschmidt/httprouter"
-	"github.com/taniachanda86/Assignment2/controllers"
+	"github.com/taniachanda86/Assignment3/controllers"
 	"gopkg.in/mgo.v2"
 )
 
@@ -20,11 +20,21 @@ func main() {
 	// Get a location resource
 	r.GET("/locations/:location_id", uc.GetLocation)
 
+	// Get a trip resource
+	r.GET("/trips/:trip_id", uc.GetTrip)
+
 	// Create a new address
 	r.POST("/locations", uc.CreateLocation)
 
+	// Create a new trip
+	r.POST("/trips", uc.CreateTrip)
+
 	// Update an address
 	r.PUT("/locations/:location_id", uc.UpdateLocation)
+
+	// Update an trip
+	r.PUT("/trips/:trip_id/request", uc.UpdateTrip)
+
 
 	// Remove an existing address
 	r.DELETE("/locations/:location_id", uc.RemoveLocation)
